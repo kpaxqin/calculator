@@ -170,16 +170,13 @@
                 }
             }, false);
 
-            var value$ = input$.scan('', function(x, y) {
-                return x + y;
-            });
-
-            var result$ = value$.map(function(inputValues) {
-                return calculate(inputValues);
-            }).log();
 
             var inputStr$ = input$.scan('', function(x, y) {
                 return x + y;
+            });
+
+            var result$ = inputStr$.map(function(inputStr) {
+                return calculate(inputStr);
             });
 
             inputStr$.assign($('.calculator__input'), 'text');
