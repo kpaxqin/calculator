@@ -175,7 +175,7 @@
             });
 
             var result$ = value$.map(function(inputValues) {
-                return solveRPN(convert(inputValues));
+                return calculate(inputValues);
             }).log();
 
             var inputStr$ = input$.scan('', function(x, y) {
