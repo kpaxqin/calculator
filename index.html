@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+        /* CSS reset */
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+    </style>
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background: #262626;
+        }
+
+        .center-wrapper {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+        .center-wrapper::after {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+        .center-wrapper .center-content {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: start;
+        }
+
+        .calculator {
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .btn.calculator__operator {
+            background-color: #fd9729;
+        }
+
+        .btns-row {
+            font-size : 0;
+        }
+        .btns-row:first-child .btn{
+            border-top: none;
+        }
+
+        .btn {
+            width: 6rem;
+            height: 4rem;
+            padding: 0;
+            line-height: 4rem;
+            font-size: 1.5rem;
+            text-align: center;
+            color: #fff;
+            background: #626264;
+            border-color: #000;
+            border-width: 1px;
+            border-left: none;
+            border-bottom: none;
+        }
+        .btn:last-child {
+            border-right: none;
+        }
+
+        button {
+            font-size : 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-wrapper">
+        <ul class="center-content calculator">
+            <li class="btns-row">
+                <button class="btn">7</button>
+                <button class="btn">8</button>
+                <button class="btn">9</button>
+                <button class="btn calculator__operator">+</button>
+            </li>
+            <li class="btns-row">
+                <button class="btn">4</button>
+                <button class="btn">5</button>
+                <button class="btn">6</button>
+                <button class="btn calculator__operator">-</button>
+            </li>
+            <li class="btns-row">
+                <button class="btn">1</button>
+                <button class="btn">2</button>
+                <button class="btn">3</button>
+                <button class="btn calculator__operator">x</button>
+            </li>
+            <li class="btns-row">
+                <button class="btn btn-x-2">0</button>
+                <button class="btn">.</button>
+                <button class="btn calculator__operator">AC</button>
+                <button class="btn calculator__operator">/</button>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
