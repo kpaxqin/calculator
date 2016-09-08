@@ -88,7 +88,13 @@
     return solveRPN(convertToRPN(inputArray))[0];
   }
 
-  global.calculate = calculate;
-  global.isEndWithOperator = isEndWithOperator;
-  global.isOperator = isOperator;
+  const CalculatorUtils = {
+    calculate,
+    isEndWithOperator,
+    isOperator
+  };
+
+  if (!global.CalculatorUtils) {
+    global.CalculatorUtils = CalculatorUtils;
+  }
 })(window);

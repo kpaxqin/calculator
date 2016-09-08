@@ -132,7 +132,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bacon.js/0.7.86/Bacon.min.js"></script>
     <script src="./_dist/index.js"></script>
     <script>
-        (function() {
+        (function(CalculatorUtils) {
             var calculator = document.querySelector('.calculator__keyboard');
 
             var input$ = new Bacon.Bus();
@@ -146,19 +146,19 @@
 
 
             var inputStr$ = input$.scan('', function(x, y) {
-                if (isEndWithOperator(x) && isOperator(y)) {
+                if (CalculatorUtils.isEndWithOperator(x) && CalculatorUtils.isOperator(y)) {
                     return x; //ignore duplicated operator
                 }
                 return x + y;
             });
 
             var result$ = inputStr$.map(function(inputStr) {
-                return calculate(inputStr);
+                return CalculatorUtils.calculate(inputStr);
             });
 
             inputStr$.assign($('.calculator__input'), 'text');
             result$.assign($('.calculator__result'), 'text');
-        })()
+        })(window.CalculatorUtils)
 
     </script>
 </body>
