@@ -76,13 +76,19 @@
     return str.split(operatorsRegExp);
   }
 
+  function isEndWithOperator(inputStr) {
+    return operatorsRegExp.test(inputStr[inputStr.length - 1]);
+  }
+
   function calculate(inputStr) {
     if (!inputStr) return 0;
 
-    const inputArray = splitInputStr(operatorsRegExp.test(inputStr[inputStr.length - 1]) ? inputStr.slice(0, inputStr.length - 1) : inputStr);
+    const inputArray = splitInputStr(isEndWithOperator(inputStr) ? inputStr.slice(0, inputStr.length - 1) : inputStr);
 
     return solveRPN(convertToRPN(inputArray))[0];
   }
 
   global.calculate = calculate;
+  global.isEndWithOperator = isEndWithOperator;
+  global.isOperator = isOperator;
 })(window);
