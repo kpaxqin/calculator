@@ -115,13 +115,13 @@
                         disabled="disabled"
                         class="btn calculator__operator calculator__operator--disabled"
                     >
-                        AC
+                        =
                     </button>
                     <button
-                        disabled="disabled"
-                        class="btn calculator__operator calculator__operator--disabled"
+                            id="clear"
+                            class="btn calculator__operator"
                     >
-                        =
+                        AC
                     </button>
                     <button data-value="/" class="btn calculator__operator">/</button>
                 </li>
@@ -144,8 +144,12 @@
                 }
             }, false);
 
+            var clear$ = $('#clear').asEventStream('click')
+                .map(_ => '');
 
-            var inputStr$ = input$.scan('', function(x, y) {
+
+            var inputStr$ = Bacon.mergeAll(input$, clear$).scan('', function(x, y) {
+                if (y === '') return '';
                 if (CalculatorUtils.isEndWithOperator(x) && CalculatorUtils.isOperator(y)) {
                     return x; //ignore duplicated operator
                 }
